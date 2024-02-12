@@ -35,7 +35,7 @@ function buildTree(data, father) {
         li.className = "parent";
         return;
       }
-      li.className = "child";
+      li.className = `child of${item.head}`;
       const parent = document.getElementById(`${item.head}`);
       parent.appendChild(li);
     });
