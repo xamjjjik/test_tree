@@ -14,7 +14,7 @@ function buildTree(data, father) {
   let sortArray = [];
 
   // Разделение массива по head
-  data.map((service) => {
+  data.forEach((service) => {
     if (!servicesByHead[service.head]) {
       servicesByHead[service.head] = [service];
       sortArray.push(service.head);
@@ -25,12 +25,12 @@ function buildTree(data, father) {
   });
 
   //Создание разделов
-  for (let i = 0; i < sortArray.length; i++) {
-    servicesByHead[sortArray[i]].forEach((item) => {
+  for (el of sortArray) {
+    servicesByHead[el].forEach((item) => {
       const li = document.createElement("li");
       li.textContent = `${item.name}`;
       li.id = `${item.id}`;
-      if (sortArray[i] === null) {
+      if (el === null) {
         father.appendChild(li);
         li.className = "parent";
         return;
@@ -42,10 +42,10 @@ function buildTree(data, father) {
   }
 
   //Добавление цен
-  data.map((item) => {
+  data.forEach((item) => {
     if (item.node === 0) {
       let el = document.getElementById(`${item.id}`);
-      el.textContent += `(${item.price})`;
+      el.textContent += ` (${item.price})`;
     }
   });
 }

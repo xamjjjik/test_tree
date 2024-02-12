@@ -1,4 +1,21 @@
 li {
   position: relative;
   margin-left: 20px;
+  padding: 5px;
 }
+
+/* li:hover:first-child {
+  display: contents;
+}
+
+ul {
+  list-style-image: url("arrow.png");
+  height: 5px;
+  width: 5px;
+}
+.child {
+  display: none;
+}
+.child:hover {
+  display: contents;
+} */
