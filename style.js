@@ -1,39 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-  let parents = document.querySelectorAll(".parent");
-  let children = document.querySelectorAll(".child");
+let parents = document.querySelectorAll(".parent");
+let children = document.querySelectorAll(".child");
+// console.log(children);
 
-  parents.forEach(function (parent) {
-    parent.addEventListener("click", function () {
-      let firstChildren = parent.querySelectorAll(`.of${parent.id}`);
-      firstChildren.forEach(function (child) {
-        if (child.style.display == "list-item") {
-          setTimeout(function () {
-            child.style.display = "none";
-          }, 100);
-          return;
-        }
-        setTimeout(function () {
-          child.style.display = "list-item";
-        }, 200);
-      });
-    });
-  });
+parents.forEach(function (parent) {
+  console.log("pidoras");
+  parent.addEventListener("click", console.log("penis"));
+  //   parent.addEventListener("click", () => {
+  //     let firstChildren = parent.querySelectorAll(`.of${parent.id}`);
+  //     firstChildren.forEach((child) => {
+  //       if (!child.classList.contains("visiable")) {
+  //         setTimeout(() => {
+  //           child.classList.add("visiable");
+  //         }, 1000);
+  //         return;
+  //       }
+  //       setTimeout(() => {
+  //         child.classList.remove("visiable");
+  //       }, 20000);
+  //     });
+  //   });
+});
 
-  children.forEach(function (child) {
-    child.addEventListener("mouseover", function () {
-      console.log(child);
-      let grandchildren = child.querySelectorAll(`.of${children.id}`);
-      grandchildren.forEach(function (grand) {
-        if (grand.style.display == "list-item") {
-          setTimeout(function () {
-            grand.style.display = "none";
-          }, 100);
-          return;
-        }
-        setTimeout(function () {
-          grand.style.display = "list-item";
-        }, 200);
-      });
+children.forEach(function (child) {
+  child.addEventListener("click", () => {
+    let grandchild = child.querySelectorAll(`.of${child.id}`);
+
+    grandchild.forEach((grand) => {
+      if (!grand.classList.contains("visiable")) {
+        setTimeout(() => {
+          grand.classList.add("visiable");
+        }, 100);
+        return;
+      }
+      setTimeout(() => {
+        grand.classList.remove("visiable");
+      }, 200);
     });
   });
 });
