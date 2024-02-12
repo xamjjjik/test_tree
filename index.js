@@ -24,20 +24,17 @@ function buildTree(data, father) {
     servicesByHead[service.head].sort((a, b) => a.sorthead - b.sorthead);
   });
 
-  // Создание головных разделов
-  servicesByHead[null].map((item) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name}`;
-    li.id = `${item.id}`;
-    father.appendChild(li);
-  });
-
-  //Создание дополнительных разделов
-  for (let i = 1; i < sortArray.length; i++) {
+  //Создание разделов
+  for (let i = 0; i < sortArray.length; i++) {
     servicesByHead[sortArray[i]].forEach((item) => {
       const li = document.createElement("li");
       li.textContent = `${item.name}`;
       li.id = `${item.id}`;
+      if (sortArray[i] === null) {
+        father.appendChild(li);
+        li.className = "parent";
+        return;
+      }
       li.className = "child";
       const parent = document.getElementById(`${item.head}`);
       parent.appendChild(li);
