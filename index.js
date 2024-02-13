@@ -4,7 +4,7 @@ fetch("tree.json")
   .then((data) => {
     // Добавляем дерево на веб-страницу
     const tree = document.createElement("ul");
-    document.body.appendChild(tree);
+    document.body.appendChild(tree); //проверить необходимость этого, или просто заменить на body
     // Заполняем дерево из полученных данных
     buildTree(data.services, tree);
   });

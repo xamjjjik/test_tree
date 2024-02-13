@@ -6,13 +6,8 @@ li {
 }
 
 .child {
-  z-index: 2;
   display: none;
 }
 .visiable {
   display: list-item;
-}
-.parent {
-  z-index: 3;
-  display: block;
 }
